@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sim ou Não</title>
+    <style>
+        h1 {
+            color: #FF007F; /* Rosa choque */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        .button {
+            position: absolute;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+        #btnSim {
+            background-color: green;
+        }
+        #btnNao {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1  >Você me ama?</h1>
+    <div id="container">
+        <button id="btnSim" class="button" style="top: 50%; left: 30%;">Sim</button>
+        <button id="btnNao" class="button" style="top: 50%; left: 60%;">Não</button>
+    </div>
+
+    <script>
+        const btnSim = document.getElementById('btnSim');
+        const btnNao = document.getElementById('btnNao');
+        const container = document.getElementById('container');
+
+        // Evento para o botão "Sim"
+        btnSim.addEventListener('click', () => {
+            alert('Eu sabia que você me amava');
+        });
+
+        // Evento para o botão "Não"
+        btnNao.addEventListener('click', () => {
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+
+            // Gera coordenadas aleatórias dentro do contêiner
+            const randomX = Math.random() * (containerWidth - btnNao.offsetWidth);
+            const randomY = Math.random() * (containerHeight - btnNao.offsetHeight);
+
+            // Atualiza a posição do botão
+            btnNao.style.left = `${randomX}px`;
+            btnNao.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>
+
